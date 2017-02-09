@@ -17,6 +17,7 @@ import java.util.List;
  */
 
 public class PersoDAO {
+
     private SQLiteDatabase database;
     private MySQLiteHelper dbHelper; //Classe de creation de la BDD
     private String[] allColumns = {MySQLiteHelper.COLUMN_ID,
@@ -71,6 +72,14 @@ public class PersoDAO {
             System.out.println("La Suppression a échoué");
         }
 
+    }
+
+    public Personnage getPerso(){
+        Cursor cursor = database.query(MySQLiteHelper.TABLE, allColumns, null, null, null, null, null);
+        cursor.moveToFirst();
+        Personnage perso = new Personnage(cursor.getLong(0), cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4), cursor.getInt(5));
+        cursor.close();
+        return perso;
     }
 
     public List<Personnage> getAllPerso() {
