@@ -8,4 +8,5 @@
     <string name="title_activity_accueil">Accueil</string>
     <string name="title_activity_create_personnage">CreatePersonnage</string>
     <string name="title_activity_connect_perso">ConnectPerso</string>
+    <string name="title_activity_parametres">Parametres</string>
 </resources>

@@ -18,6 +18,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <provider
+            android:name=".database.MyProvider"
+            android:authorities="com.oolink.exo.persogame.database.MyProvider"></provider>
         <activity
             android:name=".activities.MainActivity"
             android:label="@string/title_activity_accueil"
@@ -45,6 +48,10 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.oolink.exo.persogame.activities.Accueil" />
         </activity>
+        <activity
+            android:name=".activities.Parametres"
+            android:label="@string/title_activity_parametres"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

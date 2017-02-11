@@ -74,8 +74,16 @@ public class PersoDAO {
 
     }
 
-    public Personnage getPerso(){
-        Cursor cursor = database.query(MySQLiteHelper.TABLE, allColumns, null, null, null, null, null);
+    public void deleteAllPerso() throws Exception {
+        try {
+            database.execSQL("DELETE * FROM " + MySQLiteHelper.TABLE);
+        } catch (Exception e) {
+            System.out.println("La Suppression a échoué");
+        }
+    }
+
+    public Personnage getPerso(String pseudo) {
+        Cursor cursor = database.query(MySQLiteHelper.TABLE, allColumns, MySQLiteHelper.COLUMN_PSEUDO + "='" + pseudo + "'", null, null, null, null);
         cursor.moveToFirst();
         Personnage perso = new Personnage(cursor.getLong(0), cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4), cursor.getInt(5));
         cursor.close();
@@ -93,6 +101,19 @@ public class PersoDAO {
         }
         cursor.close();
         return personnages;
+    }
+
+    public Personnage searchPerso(String pseudo, String password) {
+        Cursor cursor = database.query(MySQLiteHelper.TABLE, allColumns, MySQLiteHelper.COLUMN_PSEUDO + "='" + pseudo + "'" + " and " + MySQLiteHelper.COLUMN_PASSWORD + "='" + password + "'", null, null, null, null);
+        if (cursor.getCount() == 0) {
+            cursor.close();
+            return null;
+        } else {
+            cursor.moveToFirst();
+            Personnage perso = new Personnage(cursor.getLong(0), cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4), cursor.getInt(5));
+            cursor.close();
+            return perso;
+        }
     }
 
 }

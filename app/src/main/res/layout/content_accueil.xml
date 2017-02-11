@@ -31,7 +31,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="81dp"
-        android:id="@+id/textView2" />
+        android:id="@+id/titreAccueil" />
 
     <Button
         android:text="Accéder à mon perso"
