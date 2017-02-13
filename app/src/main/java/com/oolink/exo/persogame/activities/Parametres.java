@@ -4,20 +4,17 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.oolink.exo.persogame.DAO.PersoDAO;
 import com.oolink.exo.persogame.R;
 import com.oolink.exo.persogame.metier.Personnage;
-
-import org.w3c.dom.Text;
 
 public class Parametres extends AppCompatActivity {
 
@@ -26,7 +23,7 @@ public class Parametres extends AppCompatActivity {
     private TextView pseudoUp;
     private TextView nameUp;
     SharedPreferences sharedPreferences;
-    private PersoDAO data=new PersoDAO(this);
+    private PersoDAO data = new PersoDAO(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,9 +35,21 @@ public class Parametres extends AppCompatActivity {
         sharedPreferences = getSharedPreferences(CreatePersonnage.MY_PREFERENCES, Context.MODE_PRIVATE);
         String savePseudo = sharedPreferences.getString("monPseudo", "No name defined");
         final SharedPreferences.Editor editor = sharedPreferences.edit();
-        Personnage personnage=data.getPerso(savePseudo);
-        
+        Personnage personnage = data.getPerso(savePseudo);
 
+        pseudoUp = (TextView) findViewById(R.id.pseudoUp);
+        nameUp = (TextView) findViewById(R.id.nameUp);
+
+        pseudoUp.setText(personnage.getPseudo());
+        nameUp.setText(personnage.getNom());
+
+        editPseudo=(ImageButton) findViewById(R.id.editPseudo);
+        editPseudo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EditText editText=(EditText) pseudoUp;
+            }
+        });
 
         deconnect = (Button) findViewById(R.id.deconnect);
         deconnect.setOnClickListener(new View.OnClickListener() {
@@ -48,7 +57,7 @@ public class Parametres extends AppCompatActivity {
             public void onClick(View v) {
                 editor.clear();
                 editor.commit();
-                Parametres.this.startActivity(new Intent(Parametres.this,Accueil.class));
+                Parametres.this.startActivity(new Intent(Parametres.this, Accueil.class));
 
             }
         });
