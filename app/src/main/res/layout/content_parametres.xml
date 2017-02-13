@@ -18,37 +18,46 @@
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingTop="@dimen/nav_header_vertical_spacing"
-        app:srcCompat="@android:drawable/sym_def_app_icon"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:paddingTop="@dimen/nav_header_vertical_spacing"
+        app:srcCompat="@android:drawable/sym_def_app_icon" />
 
     <TextView
-        android:text="TextView"
+        android:id="@+id/pseudoUp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/imageView"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="57dp"
-        android:id="@+id/textView" />
+        android:text="TextView" />
 
     <TextView
-        android:text="TextView"
+        android:id="@+id/nameUp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/pseudoUp"
         android:layout_below="@+id/editPseudo"
-        android:layout_alignStart="@+id/textView"
         android:layout_marginTop="49dp"
-        android:id="@+id/textView2" />
+        android:text="TextView" />
 
     <ImageButton
         android:id="@+id/editPseudo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@android:drawable/ic_menu_edit"
-        android:layout_alignBottom="@+id/textView"
-        android:layout_toEndOf="@+id/textView"
+        android:layout_alignBottom="@+id/pseudoUp"
         android:layout_marginStart="32dp"
-        android:background="?android:attr/colorBackground" />
+        android:layout_toEndOf="@+id/pseudoUp"
+        android:background="?android:attr/colorBackground"
+        app:srcCompat="@android:drawable/ic_menu_edit" />
+
+    <Button
+        android:id="@+id/deconnect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/nameUp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="110dp"
+        android:text="Deconnxion" />
 
 </RelativeLayout>

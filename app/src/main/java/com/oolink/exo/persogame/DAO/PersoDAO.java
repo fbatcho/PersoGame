@@ -103,6 +103,13 @@ public class PersoDAO {
         return personnages;
     }
 
+    public boolean isExistPseudo(String pseudo) {
+        if (this.getPerso(pseudo) == null) {
+            return false;
+        }
+        return true;
+    }
+
     public Personnage searchPerso(String pseudo, String password) {
         Cursor cursor = database.query(MySQLiteHelper.TABLE, allColumns, MySQLiteHelper.COLUMN_PSEUDO + "='" + pseudo + "'" + " and " + MySQLiteHelper.COLUMN_PASSWORD + "='" + password + "'", null, null, null, null);
         if (cursor.getCount() == 0) {

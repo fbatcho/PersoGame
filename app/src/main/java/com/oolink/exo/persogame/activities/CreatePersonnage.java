@@ -79,6 +79,10 @@ public class CreatePersonnage extends AppCompatActivity {
                 } else if (TextUtils.isEmpty(passwordConf.getText().toString())) {
                     passwordConf.setError("Ce champ est obligatoire");
                 }
+                //Gestion du pseudo
+                else if (datasource.isExistPseudo(pseudo.getText().toString())){
+                    pseudo.setError("Ce pseudo existe déjà");
+                }
                 //Gestion du mot de passe
 
 

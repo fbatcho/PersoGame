@@ -28,7 +28,7 @@ public class Accueil extends AppCompatActivity {
 
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        txt = (TextView) findViewById(R.id.titreAccueil);
+       /*** txt = (TextView) findViewById(R.id.titreAccueil);
         data = new PersoDAO(this);
         data.open();
         try {
@@ -36,7 +36,7 @@ public class Accueil extends AppCompatActivity {
         } catch (Exception e) {
             txt.setText("OOOUUPS!");
         }
-
+**/
         button_create = (Button) this.findViewById(R.id.button_create);
         button_create.setOnClickListener(new View.OnClickListener() {
             @Override
