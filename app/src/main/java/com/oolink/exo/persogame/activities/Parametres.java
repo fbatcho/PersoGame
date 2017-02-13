@@ -22,8 +22,9 @@ public class Parametres extends AppCompatActivity {
     private ImageButton editPseudo;
     private TextView pseudoUp;
     private TextView nameUp;
-    SharedPreferences sharedPreferences;
+    private SharedPreferences sharedPreferences;
     private PersoDAO data = new PersoDAO(this);
+    private SharedPreferences.Editor editor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +35,9 @@ public class Parametres extends AppCompatActivity {
 
         sharedPreferences = getSharedPreferences(CreatePersonnage.MY_PREFERENCES, Context.MODE_PRIVATE);
         String savePseudo = sharedPreferences.getString("monPseudo", "No name defined");
-        final SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor = sharedPreferences.edit();
+        data.open();
+
         Personnage personnage = data.getPerso(savePseudo);
 
         pseudoUp = (TextView) findViewById(R.id.pseudoUp);
@@ -47,7 +50,7 @@ public class Parametres extends AppCompatActivity {
         editPseudo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                EditText editText=(EditText) pseudoUp;
+                //EditText editText=(EditText) pseudoUp;
             }
         });
 
@@ -63,4 +66,16 @@ public class Parametres extends AppCompatActivity {
         });
     }
 
+    @Override
+    protected void onPause() {
+        data.close();
+        super.onPause();
+
+    }
+
+    @Override
+    protected void onResume() {
+        data.open();
+        super.onResume();
+    }
 }

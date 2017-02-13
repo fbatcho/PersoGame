@@ -1,6 +1,5 @@
 package com.oolink.exo.persogame.activities;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -62,13 +61,13 @@ public class Accueil extends AppCompatActivity {
 
     @Override
     protected void onPause() {
-        data.close();
+        //data.close();
         super.onPause();
     }
 
     @Override
     protected void onResume() {
-        data.open();
+//        data.open();
         super.onResume();
     }
 
