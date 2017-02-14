@@ -104,10 +104,11 @@ public class PersoDAO {
     }
 
     public boolean isExistPseudo(String pseudo) {
-        if (this.getPerso(pseudo) == null) {
+        Cursor cursor = database.query(MySQLiteHelper.TABLE, allColumns, MySQLiteHelper.COLUMN_PSEUDO + "='" + pseudo + "'", null, null, null, null);
+        cursor.moveToFirst();
+        if (cursor.getCount() == 0)
             return false;
-        }
-        return true;
+        else return true;
     }
 
     public Personnage searchPerso(String pseudo, String password) {

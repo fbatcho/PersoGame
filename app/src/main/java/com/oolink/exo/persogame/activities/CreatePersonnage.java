@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.annotation.DrawableRes;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
@@ -80,13 +81,14 @@ public class CreatePersonnage extends AppCompatActivity {
                     passwordConf.setError("Ce champ est obligatoire");
                 }
                 //Gestion du pseudo
-                else if (datasource.isExistPseudo(pseudo.getText().toString())){
-                    pseudo.setError("Ce pseudo existe déjà");
-                }
+                else if  (datasource.isExistPseudo(pseudo.getText().toString()))
+                        pseudo.setError("Ce pseudo existe déjà");
+
+
                 //Gestion du mot de passe
 
 
-                else if (!password.getText().toString().equals(passwordConf.getText().toString())) {
+               else if (!password.getText().toString().equals(passwordConf.getText().toString())) {
                     password.setError("Assurez-vous que vos deux mot de passe soient identiques");
                     passwordConf.setError("Assurez-vous que vos deux mot de passe soient identiques");
                 } else {

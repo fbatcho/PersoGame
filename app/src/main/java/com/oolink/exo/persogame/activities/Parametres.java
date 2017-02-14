@@ -22,6 +22,8 @@ public class Parametres extends AppCompatActivity {
     private ImageButton editPseudo;
     private TextView pseudoUp;
     private TextView nameUp;
+    private EditText updatePseudo;
+
     private SharedPreferences sharedPreferences;
     private PersoDAO data = new PersoDAO(this);
     private SharedPreferences.Editor editor;
@@ -38,7 +40,7 @@ public class Parametres extends AppCompatActivity {
         editor = sharedPreferences.edit();
         data.open();
 
-        Personnage personnage = data.getPerso(savePseudo);
+        final Personnage personnage = data.getPerso(savePseudo);
 
         pseudoUp = (TextView) findViewById(R.id.pseudoUp);
         nameUp = (TextView) findViewById(R.id.nameUp);
@@ -46,11 +48,14 @@ public class Parametres extends AppCompatActivity {
         pseudoUp.setText(personnage.getPseudo());
         nameUp.setText(personnage.getNom());
 
+        updatePseudo=(EditText) findViewById(R.id.updatePseudo);
         editPseudo=(ImageButton) findViewById(R.id.editPseudo);
         editPseudo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //EditText editText=(EditText) pseudoUp;
+                pseudoUp.setVisibility(View.GONE);
+                updatePseudo.setVisibility(View.VISIBLE);
+                updatePseudo.setText(personnage.getPseudo());
             }
         });
 
