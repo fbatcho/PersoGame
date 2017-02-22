@@ -32,170 +32,113 @@
         android:layout_marginTop="57dp"
         android:text="TextView" />
 
-    <TextView
-        android:text="TextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/nameUp"
-        android:layout_alignEnd="@+id/editPseudo"
-        android:id="@+id/textView" />
 
     <TextView
-        android:id="@+id/nameUp"
+        android:id="@+id/surnameUp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="TextView"
-        android:layout_below="@+id/updatePseudo"
-        android:layout_toStartOf="@+id/pseudoUp" />
-
-    <TextView
-        android:text="TextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textView2"
-        android:layout_toEndOf="@+id/nameUp"
-        android:layout_marginTop="32dp"
-        android:id="@+id/textView3" />
-
-
-
-    />
-
-    <TextView
-        android:text="TextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:id="@+id/textView2"
-        android:layout_below="@+id/nameUp"
-        android:layout_alignStart="@+id/textView3" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:ems="10"
-        android:id="@+id/editText2"
-        android:layout_alignTop="@+id/pseudoUp"
-        android:layout_alignStart="@+id/editText5" />
+        android:layout_alignBaseline="@+id/updateSurname"
+        android:layout_alignBottom="@+id/updateSurname"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="28dp"
+        android:text="TextView" />
 
     <EditText
         android:id="@+id/updatePseudo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:visibility="invisible"
+        android:layout_alignBaseline="@+id/pseudoUp"
+        android:layout_alignBottom="@+id/pseudoUp"
+        android:layout_alignStart="@+id/updatePassword"
         android:ems="10"
-        android:layout_alignBaseline="@+id/editText2"
-        android:layout_alignBottom="@+id/editText2"
-        android:layout_alignStart="@+id/editText2" />
+        android:inputType="textPersonName"
+        android:visibility="invisible" />
 
     <EditText
         android:id="@+id/updateSurname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"
+        android:layout_above="@+id/passwordUp"
+        android:layout_marginBottom="17dp"
+        android:layout_toEndOf="@+id/imageView"
         android:ems="10"
-        android:layout_alignBaseline="@+id/textView"
-        android:layout_alignBottom="@+id/textView"
-        android:layout_toEndOf="@+id/modifier" />
+        android:inputType="textPersonName" />
 
-    <ImageButton
-        android:id="@+id/editPseudo"
+    <TextView
+        android:id="@+id/nameUp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="?android:attr/colorBackground"
-        app:srcCompat="@android:drawable/ic_menu_edit"
-        android:layout_alignBottom="@+id/pseudoUp"
-        android:layout_toEndOf="@+id/editText2" />
-
-    <ImageButton
-        android:id="@+id/editNname"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@android:drawable/ic_menu_edit"
-        android:layout_above="@+id/textView2"
-        android:layout_below="@+id/editText2"
-        android:layout_alignEnd="@+id/imageView"
-        android:background="?android:attr/colorBackground"
-        android:layout_toEndOf="@+id/nameUp" />
-
-    <ImageButton
-        android:id="@+id/editSurname"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@android:drawable/ic_menu_edit"
-        android:layout_alignTop="@+id/updateSurname"
-        android:layout_alignBottom="@+id/textView"
-        android:layout_alignParentEnd="true"
-        android:background="?android:attr/colorBackground" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="number"
-        android:ems="10"
-        android:id="@+id/editText5"
-        android:layout_alignTop="@+id/editAge"
-        android:layout_centerHorizontal="true" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:ems="10"
-        android:id="@+id/editText6"
-        android:layout_alignBaseline="@+id/textView3"
-        android:layout_alignBottom="@+id/textView3"
-        android:layout_toStartOf="@+id/imageButton5" />
-
-    <Button
-        android:text="Modifier"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textView3"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="44dp"
-        android:id="@+id/modifier"/>
-
-    <ImageButton
-        android:id="@+id/editAge"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@android:drawable/ic_menu_edit"
-        android:background="?android:attr/colorBackground"
-        android:layout_centerVertical="true"
-        android:layout_toEndOf="@+id/deconnect" />
-
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@android:drawable/ic_menu_edit"
-        android:id="@+id/imageButton5"
-        android:background="?android:attr/colorBackground"
-        android:layout_below="@+id/editText5"
-        android:layout_toStartOf="@+id/editSurname" />
+        android:layout_alignTop="@+id/updateName"
+        android:layout_marginEnd="20dp"
+        android:layout_toStartOf="@+id/deconnect"
+        android:text="TextView" />
 
     <EditText
         android:id="@+id/updateName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:visibility="invisible"
-        android:ems="10"
-        android:layout_alignBaseline="@+id/nameUp"
-        android:layout_alignBottom="@+id/nameUp"
+        android:layout_alignBaseline="@+id/updateSurname"
+        android:layout_alignBottom="@+id/updateSurname"
         android:layout_alignParentStart="true"
-        android:layout_toStartOf="@+id/modifier" />
+        android:layout_toStartOf="@+id/passwordUp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:visibility="invisible" />
+
+    <TextView
+        android:id="@+id/passwordUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:inputType="textPassword"
+        android:text="TextView" />
+
+    <EditText
+        android:id="@+id/updatePassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/passwordUp"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:inputType="number" />
+
+
+    <TextView
+        android:id="@+id/ageUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/updatePassword"
+        android:layout_marginTop="33dp"
+        android:layout_toStartOf="@+id/updateSurname"
+        android:text="TextView" />
+
+    <EditText
+        android:id="@+id/updateAge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/ageUp"
+        android:layout_alignBottom="@+id/ageUp"
+        android:layout_alignStart="@+id/updatePassword"
+        android:ems="10"
+        android:inputType="textPassword" />
+
+    <Button
+        android:id="@+id/modifier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/updateAge"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="17dp"
+        android:text="Modifier" />
 
     <Button
         android:id="@+id/deconnect"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Deconnexion"
-        android:layout_marginTop="19dp"
         android:layout_below="@+id/modifier"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="19dp"
+        android:text="Deconnexion" />
 
 </RelativeLayout>
