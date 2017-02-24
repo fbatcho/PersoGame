@@ -11,6 +11,7 @@ import android.util.Log;
 
 public class MySQLiteHelper extends SQLiteOpenHelper {
 
+    private SQLiteDatabase persoDB;
     public static final String TABLE = "Personnage";
     public static final String COLUMN_ID = "id";
     public static final String COLUMN_PSEUDO = "pseudo";
@@ -18,6 +19,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
     public static final String COLUMN_NOM = "nom";
     public static final String COLUMN_PASSWORD = "password";
     public static final String COLUMN_AGE = "age";
+
 
     private static final String DATABASE_NAME = "perso.db";
     private static final int DATABASE_VERSION = 1;
@@ -38,8 +40,18 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
+
         db.execSQL(CREATE_TABLE);
     }
+
+    /**
+     * @Override public boolean onCreate() {
+     * Context context = getContext();
+     * DatabaseHelper dbHelper = new DatabaseHelper(context);
+     * formationDB = dbHelper.getWritableDatabase();
+     * return (formationDB == null) ? false : true;
+     * }
+     **/
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
@@ -49,4 +61,5 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE);
         onCreate(db);
     }
+
 }

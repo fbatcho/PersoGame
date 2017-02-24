@@ -13,4 +13,36 @@
     tools:context="com.oolink.exo.persogame.activities.ConnectPerso"
     tools:showIn="@layout/activity_connect_perso">
 
+    <EditText
+        android:id="@+id/usePseudo"
+        android:hint="Pseudo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="95dp"
+        android:background="@color/colorAccent" />
+
+    <EditText
+        android:id="@+id/usePassword"
+        android:hint="Mot de passe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:layout_below="@+id/usePseudo"
+        android:layout_alignStart="@+id/usePseudo"
+        android:layout_marginTop="55dp"
+        android:background="@color/colorAccent" />
+
+    <Button
+        android:id="@+id/connect"
+        android:text="Se connecter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/usePassword"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="55dp" />
 </RelativeLayout>

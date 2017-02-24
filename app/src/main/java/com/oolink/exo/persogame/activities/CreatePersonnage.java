@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.annotation.DrawableRes;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
@@ -48,13 +49,7 @@ public class CreatePersonnage extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        /**FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-         fab.setOnClickListener(new View.OnClickListener() {
-        @Override public void onClick(View view) {
-        Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-        .setAction("Action", null).show();
-        }
-        })**/
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         datasource = new PersoDAO(this);
         datasource.open();
@@ -85,10 +80,15 @@ public class CreatePersonnage extends AppCompatActivity {
                 } else if (TextUtils.isEmpty(passwordConf.getText().toString())) {
                     passwordConf.setError("Ce champ est obligatoire");
                 }
+                //Gestion du pseudo
+                else if  (datasource.isExistPseudo(pseudo.getText().toString()))
+                        pseudo.setError("Ce pseudo existe déjà");
+
+
                 //Gestion du mot de passe
 
 
-                else if (!password.getText().toString().equals(passwordConf.getText().toString())) {
+               else if (!password.getText().toString().equals(passwordConf.getText().toString())) {
                     password.setError("Assurez-vous que vos deux mot de passe soient identiques");
                     passwordConf.setError("Assurez-vous que vos deux mot de passe soient identiques");
                 } else {
