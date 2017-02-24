@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">PersoGame</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_accueil">Accueil</string>
+    <string name="title_activity_create_personnage">CreatePersonnage</string>
+    <string name="title_activity_connect_perso">ConnectPerso</string>
+</resources>
