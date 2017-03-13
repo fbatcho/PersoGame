@@ -18,8 +18,12 @@
           <option name="url" value="https://github.com/rubyg/ConnectRs.git" />
           <option name="userName" value="" />
         </UrlAndUserName>
+        <UrlAndUserName>
+          <option name="url" value="https://batfan@bitbucket.org/oolink_projectx/projetx.git" />
+          <option name="userName" value="" />
+        </UrlAndUserName>
       </list>
     </option>
-    <option name="cloneParentDir" value="C:\Users\fanny\AndroidStudioProjects" />
+    <option name="cloneParentDir" value="C:\Users\fanny\AndroidStudioProjects\" />
   </component>
 </application>
