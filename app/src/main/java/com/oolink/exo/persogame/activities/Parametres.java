@@ -19,9 +19,20 @@ import com.oolink.exo.persogame.metier.Personnage;
 public class Parametres extends AppCompatActivity {
 
     private Button deconnect;
-    private ImageButton editPseudo;
+ private Button edit;
+
     private TextView pseudoUp;
     private TextView nameUp;
+    private TextView surnameUp;
+    private TextView passwordUp;
+    private TextView ageUp;
+
+    private EditText updatePseudo;
+    private EditText updateName;
+    private EditText updateSurname;
+    private EditText updatePassword;
+    private EditText updateAge;
+
     private SharedPreferences sharedPreferences;
     private PersoDAO data = new PersoDAO(this);
     private SharedPreferences.Editor editor;
@@ -38,19 +49,55 @@ public class Parametres extends AppCompatActivity {
         editor = sharedPreferences.edit();
         data.open();
 
-        Personnage personnage = data.getPerso(savePseudo);
+        final Personnage personnage = data.getPerso(savePseudo);
 
         pseudoUp = (TextView) findViewById(R.id.pseudoUp);
         nameUp = (TextView) findViewById(R.id.nameUp);
+        surnameUp = (TextView) findViewById(R.id.surnameUp);
+        passwordUp = (TextView) findViewById(R.id.passwordUp);
+        ageUp = (TextView) findViewById(R.id.ageUp);
+
+
 
         pseudoUp.setText(personnage.getPseudo());
         nameUp.setText(personnage.getNom());
+        surnameUp.setText(personnage.getPrenom());
+        passwordUp.setText(personnage.getPassword());
+        ageUp.setText(personnage.getAge());
 
-        editPseudo=(ImageButton) findViewById(R.id.editPseudo);
-        editPseudo.setOnClickListener(new View.OnClickListener() {
+
+        updatePseudo=(EditText) findViewById(R.id.updatePseudo);
+        updateName=(EditText) findViewById(R.id.updateName);
+        updateSurname=(EditText) findViewById(R.id.updateSurname);
+        updatePassword=(EditText) findViewById(R.id.updatePassword);
+        updateAge=(EditText) findViewById(R.id.updateAge);
+
+
+        edit=(Button) findViewById(R.id.modifier);
+        edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //EditText editText=(EditText) pseudoUp;
+                pseudoUp.setVisibility(View.GONE);
+                updatePseudo.setVisibility(View.VISIBLE);
+                updatePseudo.setText(personnage.getPseudo());
+
+                nameUp.setVisibility(View.GONE);
+                updateName.setVisibility(View.VISIBLE);
+                updateName.setText(personnage.getNom());
+
+                surnameUp.setVisibility(View.GONE);
+                updateSurname.setVisibility(View.VISIBLE);
+                updateSurname.setText(personnage.getPrenom());
+
+                passwordUp.setVisibility(View.GONE);
+                updatePassword.setVisibility(View.VISIBLE);
+                updatePassword.setText(personnage.getPassword());
+
+                ageUp.setVisibility(View.GONE);
+                updateAge.setVisibility(View.VISIBLE);
+                updateAge.setText(personnage.getAge());
+
+                edit.setText("Valider");
             }
         });
 

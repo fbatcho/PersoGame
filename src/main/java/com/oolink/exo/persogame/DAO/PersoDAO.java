@@ -17,7 +17,6 @@ import java.util.List;
  */
 
 public class PersoDAO {
-
     private SQLiteDatabase database;
     private MySQLiteHelper dbHelper; //Classe de creation de la BDD
     private String[] allColumns = {MySQLiteHelper.COLUMN_ID,
@@ -74,22 +73,6 @@ public class PersoDAO {
 
     }
 
-    public void deleteAllPerso() throws Exception {
-        try {
-            database.execSQL("DELETE * FROM " + MySQLiteHelper.TABLE);
-        } catch (Exception e) {
-            System.out.println("La Suppression a échoué");
-        }
-    }
-
-    public Personnage getPerso(String pseudo) {
-        Cursor cursor = database.query(MySQLiteHelper.TABLE, allColumns, MySQLiteHelper.COLUMN_PSEUDO + "='" + pseudo + "'", null, null, null, null);
-        cursor.moveToFirst();
-        Personnage perso = new Personnage(cursor.getLong(0), cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4), cursor.getInt(5));
-        cursor.close();
-        return perso;
-    }
-
     public List<Personnage> getAllPerso() {
         List<Personnage> personnages = new ArrayList<Personnage>();
         Cursor cursor = database.query(MySQLiteHelper.TABLE, allColumns, null, null, null, null, null);
@@ -101,27 +84,6 @@ public class PersoDAO {
         }
         cursor.close();
         return personnages;
-    }
-
-    public boolean isExistPseudo(String pseudo) {
-        Cursor cursor = database.query(MySQLiteHelper.TABLE, allColumns, MySQLiteHelper.COLUMN_PSEUDO + "='" + pseudo + "'", null, null, null, null);
-        cursor.moveToFirst();
-        if (cursor.getCount() == 0)
-            return false;
-        else return true;
-    }
-
-    public Personnage searchPerso(String pseudo, String password) {
-        Cursor cursor = database.query(MySQLiteHelper.TABLE, allColumns, MySQLiteHelper.COLUMN_PSEUDO + "='" + pseudo + "'" + " and " + MySQLiteHelper.COLUMN_PASSWORD + "='" + password + "'", null, null, null, null);
-        if (cursor.getCount() == 0) {
-            cursor.close();
-            return null;
-        } else {
-            cursor.moveToFirst();
-            Personnage perso = new Personnage(cursor.getLong(0), cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4), cursor.getInt(5));
-            cursor.close();
-            return perso;
-        }
     }
 
 }
